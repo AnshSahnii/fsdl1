@@ -1,38 +1,432 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap');
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #e8edf5;
+  color: #2d3a4a;
   min-height: 100vh;
+}
+
+/* ── App Shell ── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 36px;
+  background: #d6dff0;
+  border-bottom: 1px solid #c4cedf;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(80, 100, 140, 0.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #4a7fc1, #6fa3d8);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(74, 127, 193, 0.3);
+}
+
+.brand-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.brand-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1e2d40;
+  line-height: 1.2;
+}
+
+.brand-tagline {
+  font-size: 11px;
+  color: #7a8fa8;
+  margin-top: 1px;
+}
+
+.header-badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #dceaf7;
+  color: #3a72b5;
+  border: 1px solid #b8d3ef;
+  letter-spacing: 0.04em;
+}
+
+/* ── Main Layout ── */
+.layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 28px;
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+  align-items: start;
+}
+
+/* ── Form Panel ── */
+.form-panel {
+  background: #d6dff0;
+  border-radius: 18px;
+  padding: 28px 24px;
+  border: 1px solid #c4cedf;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: sticky;
+  top: 88px;
+  box-shadow: 0 4px 20px rgba(80, 100, 140, 0.1);
+}
+
+.form-section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7a8fa8;
+  margin: 20px 0 10px;
+}
+
+.form-section-label:first-of-type {
+  margin-top: 0;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.field-row .field {
+  margin-bottom: 0;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 9px 12px;
+  background: #eaf0f8;
+  border: 1px solid #c4cedf;
+  border-radius: 9px;
+  color: #2d3a4a;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  resize: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9aaec2;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #5a9fd4;
+  background: #f0f5fb;
+  box-shadow: 0 0 0 3px rgba(90, 159, 212, 0.15);
+}
+
+textarea {
+  height: 72px;
+}
+
+.input-error {
+  border-color: #d97b7a !important;
+  background: #f9efef !important;
+}
+
+.error {
+  display: block;
+  font-size: 11px;
+  color: #c05050;
+  margin-top: 4px;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 22px;
+  padding: 12px;
+  background: linear-gradient(135deg, #4a7fc1, #6fa3d8);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 14px rgba(74, 127, 193, 0.28);
+}
+
+.submit-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(74, 127, 193, 0.35);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Preview Panel ── */
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preview-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+  color: #7a8fa8;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0 4px;
+}
+
+.ready-badge {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #e4f4ea;
+  color: #3a8a56;
+  border: 1px solid #aadbc0;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+/* ── Resume Card ── */
+.resume-card {
+  background: #f4f7fc;
+  border-radius: 18px;
+  min-height: 500px;
+  overflow: hidden;
+  border: 1px solid #c4cedf;
+  box-shadow: 0 4px 24px rgba(80, 100, 140, 0.1);
+}
+
+/* ── Empty State ── */
+.empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 500px;
+  gap: 14px;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #dce6f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0b4cc;
+}
+
+.empty-state p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #8fa5bc;
+}
+
+.empty-state strong {
+  color: #5a7a9a;
+}
+
+/* ── Resume Content ── */
+.resume {
+  padding: 36px 32px;
+  color: #2d3a4a;
+}
+
+/* ── Resume Top ── */
+.resume-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.resume-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a7fc1, #6fa3d8);
   color: white;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'DM Serif Display', serif;
+  box-shadow: 0 4px 12px rgba(74, 127, 193, 0.25);
 }
 
-.App-link {
-  color: #61dafb;
+.resume-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #1a2738;
+  line-height: 1.2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.resume-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.resume-contacts span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: #6a85a0;
+}
+
+/* ── Divider ── */
+.resume-divider {
+  height: 2px;
+  background: linear-gradient(90deg, #4a7fc1 0%, #b8d3ef 60%, transparent 100%);
+  border-radius: 2px;
+  margin: 16px 0;
+}
+
+/* ── Sections ── */
+.r-section {
+  margin-bottom: 18px;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.section-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #dceaf7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #b8d3ef;
+}
+
+.section-icon svg {
+  stroke: #3a72b5 !important;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #3a72b5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.section-body {
+  font-size: 13px;
+  color: #3d4f62;
+  line-height: 1.75;
+  padding-left: 30px;
+}
+
+/* ── Superscript Year ── */
+.year-sup {
+  font-size: 9px;
+  vertical-align: super;
+  color: #3a72b5;
+  font-weight: 600;
+}
+
+/* ── Skill Chips ── */
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-left: 30px;
+}
+
+.chip {
+  font-size: 11px;
+  padding: 3px 11px;
+  border-radius: 20px;
+  background: #dceaf7;
+  color: #3a72b5;
+  border: 1px solid #b8d3ef;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 20px 16px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .form-panel {
+    position: static;
+  }
+
+  .app-header {
+    padding: 14px 20px;
   }
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>📚 Book Database</h1>
+
+<div class="container">
+
+    <div class="card">
+        <h3>Add Book</h3>
+        <input id="title" placeholder="Title">
+        <input id="author" placeholder="Author">
+        <button onclick="addBook()">Add</button>
+    </div>
+
+    <div class="card">
+        <h3>Update Book</h3>
+        <input id="uid" placeholder="ID">
+        <input id="utitle" placeholder="New Title">
+        <input id="uauthor" placeholder="New Author">
+        <button onclick="updateBook()">Update</button>
+    </div>
+
+    <div class="card">
+        <h3>Delete Book</h3>
+        <input id="did" placeholder="ID">
+        <button onclick="deleteBook()">Delete</button>
+    </div>
+
+</div>
+
+<h2>All Books</h2>
+<div id="books"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
